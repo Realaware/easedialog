@@ -1,10 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import react from 'react';
 import { DialogTheme, ProviderContext } from './Dialog.Type';
 
-const DialogContext = react.createContext<ProviderContext>({
-  setDialog: () => '',
-  dialog: {},
-  theme: DialogTheme,
-});
+// @ts-ignore
+const DialogContext = react.createContext<ProviderContext>();
 
 export default DialogContext;
