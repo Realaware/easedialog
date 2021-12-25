@@ -3,9 +3,13 @@ Use dialog in your program with ease.
 
 # Built With
 [Typescript](https://www.typescriptlang.org/)
+
 [React](https://reactjs.org/)
+
 [StyledComponents](https://styled-components.com/)
+
 [StyledIcons](https://github.com/styled-icons/styled-icons)
+
 
 # Usage
 
