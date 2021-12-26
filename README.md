@@ -19,7 +19,7 @@ Use dialog in your program with ease.
 
 ```tsx
 import React from 'react';
-import useDialog from 'easedialog/useDialog';
+import { useDialog } from 'easedialog';
 
 function App() {
   const { setDialog } = useDialog();
@@ -43,8 +43,7 @@ You can customize your dialog theme using 'createDialogTheme' method.
 ```tsx
 // somewhere you loaded dialog provider.
 
-import createDialogTheme from 'easedialog';
-import RGB from 'easedialog';
+import { createDialogTheme, RGB } from 'easedialog';
 
 const GreenTheme = createDialogTheme({
   DIALOG_HEADER_BACKGROUND: new RGB(50, 230, 50), // color value must be RGB object from library.
