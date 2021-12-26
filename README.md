@@ -43,17 +43,15 @@ You can customize your dialog theme using 'createDialogTheme' method.
 ```tsx
 // somewhere you loaded dialog provider.
 
-import createDialogTheme from 'easedialog/lib/createDialogTheme';
-import RGB from 'easedialog/lib/rgb';
+import createDialogTheme from 'easedialog';
+import RGB from 'easedialog';
 
 const GreenTheme = createDialogTheme({
   DIALOG_HEADER_BACKGROUND: new RGB(50, 230, 50), // color value must be RGB object from library.
 });
 
 function App() {
-  return <DialogProvider theme={GreenTheme}>
-    ...
-  </DialogProvider>
+  return <DialogProvider theme={GreenTheme}>...</DialogProvider>;
 }
 ```
 
@@ -61,6 +59,6 @@ function App() {
 
 ## 2021/12/26
 
-* You can set your dialog theme using createDialogTheme method by putting its object into provider.
-* Dialog light theme added.
-* Fix weird position of backdrop.
+- You can set your dialog theme using createDialogTheme method by putting its object into provider.
+- Dialog light theme added.
+- Fix weird position of backdrop.
