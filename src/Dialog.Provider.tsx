@@ -6,7 +6,7 @@ import {
   DialogProps,
   ProviderContext,
   ProviderProps,
-  DialogTheme,
+  DialogDefaultTheme,
 } from './Dialog.Type';
 import { DialogBackdrop } from './Dialog.Components';
 
@@ -16,14 +16,21 @@ function DialogProdiver(props: ProviderProps) {
   const context: ProviderContext = {
     setDialog,
     dialog,
-    theme: DialogTheme,
+    theme: props.theme
+      ? {
+          ...DialogDefaultTheme,
+          ...props.theme,
+        }
+      : DialogDefaultTheme,
   };
 
   return (
     <DialogContext.Provider value={context}>
       {props.children}
       <Dialog />
-      {dialog && dialog.visible && dialog.backdrop && <DialogBackdrop />}
+      {dialog && dialog.visible && dialog.backdrop && (
+        <DialogBackdrop className={dialog.backdropFade ? 'fade' : undefined} />
+      )}
     </DialogContext.Provider>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import RGB from './lib/rgb';
 interface ProviderContext {
     setDialog: React.Dispatch<React.SetStateAction<DialogProps | undefined>>;
     dialog: DialogProps | undefined;
@@ -6,6 +7,7 @@ interface ProviderContext {
 }
 interface ProviderProps {
     children?: any;
+    theme?: Partial<DialogThemeType>;
 }
 declare type DialogPositions = 'center';
 interface DialogProps {
@@ -16,10 +18,6 @@ interface DialogProps {
      * If it is undefined, it will be blank.
      */
     title?: string;
-    /**
-     * Invoked when dialog body is closed.
-     */
-    onClose?: () => void;
     /**
      * **body**
      *
@@ -44,12 +42,26 @@ interface DialogProps {
      * default: false
      */
     backdrop?: boolean;
+    /**
+     * disable hover effect on dialog body.
+     */
+    noHoverEffect?: boolean;
+    /**
+     * backdrop fade effect
+     *
+     * **WARNING**
+     *
+     * only backdrop is enabled.
+     */
+    backdropFade?: boolean;
 }
-declare const DialogTheme: {
-    DIALOG_HEADER_BACKGROUND: string;
-    DIALOG_BODY_BACKGROUND: string;
-    DIALOG_BODY_HOVER_BACKGROUND: string;
+declare const DialogDefaultTheme: {
+    DIALOG_HEADER_BACKGROUND: RGB;
+    DIALOG_BODY_BACKGROUND: RGB;
+    DIALOG_DIVIDER_BACKGROUND: RGB;
+    DIALOG_HEADER_TEXT_COLOR: RGB;
 };
-declare type DialogThemeType = typeof DialogTheme;
+declare const DialogLightTheme: DialogThemeType;
+declare type DialogThemeType = typeof DialogDefaultTheme;
 export type { ProviderContext, ProviderProps, DialogProps, DialogPositions, DialogThemeType, };
-export { DialogTheme };
+export { DialogDefaultTheme, DialogLightTheme };

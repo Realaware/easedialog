@@ -14,6 +14,7 @@ function App() {
             visible: true,
             body: <div>hi this is dialog owner !</div>,
             backdrop: true,
+            backdropFade: true,
           });
         }}
       >

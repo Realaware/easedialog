@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import useDialog from './useDialog';
+import { DialogThemeType } from './Dialog.Type';
+import RGB from './lib/rgb';
 
 const Right = styled.div`
   display: flex;
@@ -9,13 +11,23 @@ const Right = styled.div`
 `;
 
 const DialogIn = keyframes`
-0% {
-  transform: translate(-50%, -50%) scale(0.3);
-}
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+  }
 
-100% {
-  transform: translate(-50%, -50%) scale(1);
-}
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+`;
+
+const BackdropIn = keyframes`
+  0% {
+    opacity: 0,
+  }
+
+  100% {
+    opacity: 1
+  }
 `;
 
 const DialogContainer = styled.div`
@@ -45,9 +57,10 @@ const DialogContainer = styled.div`
   }
 `;
 
-const DialogHeader = styled.header<{ bg: string }>`
+const DialogHeader = styled.header<{ colorset: DialogThemeType }>`
   padding: 10px;
-  background-color: ${(p) => p.bg};
+  background-color: ${(p) =>
+    p.colorset.DIALOG_HEADER_BACKGROUND.getRgbString()};
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0.1)
@@ -56,11 +69,12 @@ const DialogHeader = styled.header<{ bg: string }>`
   border: none;
   display: flex;
   align-items: center;
+  color: ${(p) => p.colorset.DIALOG_HEADER_TEXT_COLOR.getRgbString()};
 `;
 
-const DialogBody = styled.div<{ bg: string; hv: string }>`
+const DialogBody = styled.div<{ colorset: DialogThemeType }>`
   padding: 10px;
-  background-color: ${(p) => p.bg};
+  background-color: ${(p) => p.colorset.DIALOG_BODY_BACKGROUND.getRgbString()};
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.16),
     rgba(255, 255, 255, 0.16)
@@ -68,23 +82,37 @@ const DialogBody = styled.div<{ bg: string; hv: string }>`
   transition: all 0.3s;
   border-radius: 0px 0px 5px 5px;
 
-  &:hover {
-    background-color: ${(p) => p.hv};
+  &:hover:not(.noHoverEffect) {
+    background-color: ${(p) =>
+      p.colorset.DIALOG_BODY_BACKGROUND.plus(
+        new RGB(15, 15, 15),
+      ).getRgbString()};
   }
 `;
 
 const DialogBackdropBase = styled.div`
+  top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: 999;
+
+  &.fade {
+    animation: ${BackdropIn} 2s;
+  }
 `;
 
-function DialogBackdrop() {
+function DialogBackdrop(props: React.HTMLAttributes<HTMLDivElement>) {
   const { setDialog } = useDialog();
 
-  return <DialogBackdropBase onClick={() => setDialog({ visible: false })} />;
+  return (
+    <DialogBackdropBase
+      {...props}
+      onClick={() => setDialog({ visible: false })}
+    />
+  );
 }
 
 const Divider = styled.div`

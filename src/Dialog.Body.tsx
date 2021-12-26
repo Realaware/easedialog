@@ -17,7 +17,7 @@ function Dialog() {
 
   return dialog && dialog.visible ? (
     <DialogContainer>
-      <DialogHeader bg={theme.DIALOG_HEADER_BACKGROUND}>
+      <DialogHeader colorset={theme}>
         <h3>{dialog.title}</h3>
 
         <Right>
@@ -30,8 +30,8 @@ function Dialog() {
       </DialogHeader>
       <Divider />
       <DialogBody
-        hv={theme.DIALOG_BODY_HOVER_BACKGROUND}
-        bg={theme.DIALOG_BODY_BACKGROUND}
+        className={dialog.noHoverEffect ? 'noHoverEffect' : undefined}
+        colorset={theme}
       >
         {dialog.body}
       </DialogBody>
