@@ -15,6 +15,24 @@ Use dialog in your program with ease.
 # Usage
 
 1. Wrap your application or index file with DialogProvider.
+
+```tsx
+// index file where react dom is rendering your app.
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { DialogProvider } from 'easedialog';
+
+ReactDOM.render(
+  <DialogProvider>
+    ...
+  </DialogProvider>,
+  document.getElementById('root'),
+)
+
+
+```
+
 2. Load useDialog hook in which you want to use it.
 
 ```tsx

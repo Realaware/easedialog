@@ -12,6 +12,10 @@ interface ProviderProps {
   theme?: Partial<DialogThemeType>;
 }
 
+interface ThemeBasedComponent {
+  colorset: DialogThemeType;
+}
+
 type DialogPositions = 'center';
 
 interface DialogProps {
@@ -63,7 +67,14 @@ interface DialogProps {
   backdropFade?: boolean;
 }
 
-const DialogDefaultTheme = {
+interface DialogThemeType {
+  DIALOG_HEADER_BACKGROUND: RGB;
+  DIALOG_BODY_BACKGROUND: RGB;
+  DIALOG_DIVIDER_BACKGROUND: RGB;
+  DIALOG_HEADER_TEXT_COLOR: RGB;
+}
+
+const DialogDefaultTheme: DialogThemeType = {
   DIALOG_HEADER_BACKGROUND: new RGB(0, 0, 0),
   DIALOG_BODY_BACKGROUND: new RGB(10, 10, 10),
   DIALOG_DIVIDER_BACKGROUND: new RGB(120, 120, 120),
@@ -77,13 +88,12 @@ const DialogLightTheme: DialogThemeType = {
   DIALOG_HEADER_TEXT_COLOR: new RGB(255, 255, 255),
 };
 
-type DialogThemeType = typeof DialogDefaultTheme;
-
 export type {
   ProviderContext,
   ProviderProps,
   DialogProps,
   DialogPositions,
   DialogThemeType,
+  ThemeBasedComponent,
 };
 export { DialogDefaultTheme, DialogLightTheme };

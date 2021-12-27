@@ -16,11 +16,6 @@ const IconContainer = styled.button<{ size: number }>`
 
   width: ${(p) => p.size + 3}px !important;
   height: ${(p) => p.size + 3}px !important;
-
-  &:active {
-    background-color: rgba(230, 230, 230, 0.16);
-    outline: 1px solid rgb(150, 150, 150);
-  }
 `;
 
 interface IconButtonProps extends React.DOMAttributes<HTMLButtonElement> {

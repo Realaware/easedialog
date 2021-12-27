@@ -62,6 +62,8 @@ function DialogBackdrop(props) {
     return ((0, jsx_runtime_1.jsx)(DialogBackdropBase, __assign({}, props, { onClick: function () { return setDialog({ visible: false }); } }), void 0));
 }
 exports.DialogBackdrop = DialogBackdrop;
-var Divider = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  width: 100%;\n  height: 2px;\n  background-color: rgb(120, 120, 120);\n"], ["\n  width: 100%;\n  height: 2px;\n  background-color: rgb(120, 120, 120);\n"])));
+var Divider = styled_components_1["default"].div(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  width: 100%;\n  height: 2px;\n  background-color: ", ";\n"], ["\n  width: 100%;\n  height: 2px;\n  background-color: ", ";\n"])), function (p) {
+    return p.colorset.DIALOG_DIVIDER_BACKGROUND.getRgbString();
+});
 exports.Divider = Divider;
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;

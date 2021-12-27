@@ -1,5 +1,5 @@
-import React from 'react';
+/// <reference types="react" />
 declare function useDialog(): {
-    setDialog: React.Dispatch<React.SetStateAction<import("./Dialog.Type").DialogProps>>;
+    setDialog: import("react").Dispatch<import("react").SetStateAction<import("./Dialog.Type").DialogProps>>;
 };
 export default useDialog;

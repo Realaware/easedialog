@@ -28,7 +28,7 @@ function Dialog() {
           />
         </Right>
       </DialogHeader>
-      <Divider />
+      <Divider colorset={theme} />
       <DialogBody
         className={dialog.noHoverEffect ? 'noHoverEffect' : undefined}
         colorset={theme}

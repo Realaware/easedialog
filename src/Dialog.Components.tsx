@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import useDialog from './useDialog';
-import { DialogThemeType } from './Dialog.Type';
+import { DialogThemeType, ThemeBasedComponent } from './Dialog.Type';
 import RGB from './lib/rgb';
 
 const Right = styled.div`
@@ -57,7 +57,7 @@ const DialogContainer = styled.div`
   }
 `;
 
-const DialogHeader = styled.header<{ colorset: DialogThemeType }>`
+const DialogHeader = styled.header<ThemeBasedComponent>`
   padding: 10px;
   background-color: ${(p) =>
     p.colorset.DIALOG_HEADER_BACKGROUND.getRgbString()};
@@ -72,7 +72,7 @@ const DialogHeader = styled.header<{ colorset: DialogThemeType }>`
   color: ${(p) => p.colorset.DIALOG_HEADER_TEXT_COLOR.getRgbString()};
 `;
 
-const DialogBody = styled.div<{ colorset: DialogThemeType }>`
+const DialogBody = styled.div<ThemeBasedComponent>`
   padding: 10px;
   background-color: ${(p) => p.colorset.DIALOG_BODY_BACKGROUND.getRgbString()};
   background-image: linear-gradient(
@@ -115,10 +115,11 @@ function DialogBackdrop(props: React.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-const Divider = styled.div`
+const Divider = styled.div<ThemeBasedComponent>`
   width: 100%;
   height: 2px;
-  background-color: rgb(120, 120, 120);
+  background-color: ${(p) =>
+    p.colorset.DIALOG_DIVIDER_BACKGROUND.getRgbString()};
 `;
 
 export {

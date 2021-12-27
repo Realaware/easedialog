@@ -1,8 +1,11 @@
 {
   "name": "easedialog",
-  "version": "0.2.0",
+  "version": "0.2.0c",
   "module": "src/dist/index.js",
   "main": "src/dist/index.js",
+  "keywords": ["react", "react-dialog"],
+  "repository": "https://github.com/Realaware/easedialog",
+  "license": "mit",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
