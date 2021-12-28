@@ -74,6 +74,10 @@ function App() {
 
 # Changelogs
 
+## 2021/12/28
+- Raw Mode Added.
+- Some improvements.
+
 ## 2021/12/26
 
 - You can set your dialog theme using createDialogTheme method by putting its object into provider.
