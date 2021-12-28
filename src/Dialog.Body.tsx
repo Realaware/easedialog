@@ -6,6 +6,7 @@ import {
   DialogBody,
   Right,
   Divider,
+  RawModeWrapper,
 } from './Dialog.Components';
 import IconButton from './lib/Icon.Button';
 import { Close } from 'styled-icons/evil';
@@ -16,26 +17,30 @@ function Dialog() {
   const { setDialog } = useDialog();
 
   return dialog && dialog.visible ? (
-    <DialogContainer>
-      <DialogHeader colorset={theme}>
-        <h3>{dialog.title}</h3>
+    dialog.rawMode ? (
+      <RawModeWrapper>{dialog.body}</RawModeWrapper>
+    ) : (
+      <DialogContainer>
+        <DialogHeader colorset={theme}>
+          <h3>{dialog.title}</h3>
 
-        <Right>
-          <IconButton
-            onClick={() => setDialog({ visible: false })}
-            size={25}
-            Icon={Close}
-          />
-        </Right>
-      </DialogHeader>
-      <Divider colorset={theme} />
-      <DialogBody
-        className={dialog.noHoverEffect ? 'noHoverEffect' : undefined}
-        colorset={theme}
-      >
-        {dialog.body}
-      </DialogBody>
-    </DialogContainer>
+          <Right>
+            <IconButton
+              onClick={() => setDialog({ visible: false })}
+              size={25}
+              Icon={Close}
+            />
+          </Right>
+        </DialogHeader>
+        <Divider colorset={theme} />
+        <DialogBody
+          className={dialog.noHoverEffect ? 'noHoverEffect' : undefined}
+          colorset={theme}
+        >
+          {dialog.body}
+        </DialogBody>
+      </DialogContainer>
+    )
   ) : null;
 }
 

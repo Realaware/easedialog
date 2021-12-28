@@ -28,9 +28,7 @@ function DialogProdiver(props: ProviderProps) {
     <DialogContext.Provider value={context}>
       {props.children}
       <Dialog />
-      {dialog && dialog.visible && dialog.backdrop && (
-        <DialogBackdrop className={dialog.backdropFade ? 'fade' : undefined} />
-      )}
+      {dialog && dialog.visible && dialog.backdrop && <DialogBackdrop />}
     </DialogContext.Provider>
   );
 }

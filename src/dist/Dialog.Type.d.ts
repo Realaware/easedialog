@@ -50,13 +50,14 @@ interface DialogProps {
      */
     noHoverEffect?: boolean;
     /**
-     * backdrop fade effect
+     * this options will allow you to make your own dialog from scratch.
+     * if this options is enabled, dialog will use body as whole container.
      *
-     * **WARNING**
+     * ** WARNING**
      *
-     * only backdrop is enabled.
+     * if you use rawMode, dialog animation will disappear.
      */
-    backdropFade?: boolean;
+    rawMode?: boolean;
 }
 interface DialogThemeType {
     DIALOG_HEADER_BACKGROUND: RGB;

@@ -6,4 +6,5 @@ declare const DialogHeader: import("styled-components").StyledComponent<"header"
 declare const DialogBody: import("styled-components").StyledComponent<"div", any, ThemeBasedComponent, never>;
 declare function DialogBackdrop(props: React.HTMLAttributes<HTMLDivElement>): JSX.Element;
 declare const Divider: import("styled-components").StyledComponent<"div", any, ThemeBasedComponent, never>;
-export { DialogBody, DialogContainer, DialogHeader, Right, DialogBackdrop, Divider, };
+declare const RawModeWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export { DialogBody, DialogContainer, DialogHeader, Right, DialogBackdrop, Divider, RawModeWrapper, };

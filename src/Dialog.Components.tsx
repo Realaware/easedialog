@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import useDialog from './useDialog';
-import { DialogThemeType, ThemeBasedComponent } from './Dialog.Type';
+import { ThemeBasedComponent } from './Dialog.Type';
 import RGB from './lib/rgb';
 
 const Right = styled.div`
@@ -45,7 +45,7 @@ const DialogContainer = styled.div`
   min-width: 250px;
   z-index: 1000;
 
-  border: 1px solid rgb(120, 120, 120);
+  border: 1px solid rgb(100, 100, 100);
 
   h1,
   h2,
@@ -122,6 +122,14 @@ const Divider = styled.div<ThemeBasedComponent>`
     p.colorset.DIALOG_DIVIDER_BACKGROUND.getRgbString()};
 `;
 
+const RawModeWrapper = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+`;
+
 export {
   DialogBody,
   DialogContainer,
@@ -129,4 +137,5 @@ export {
   Right,
   DialogBackdrop,
   Divider,
+  RawModeWrapper,
 };

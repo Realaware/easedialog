@@ -37,7 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.Divider = exports.DialogBackdrop = exports.Right = exports.DialogHeader = exports.DialogContainer = exports.DialogBody = void 0;
+exports.RawModeWrapper = exports.Divider = exports.DialogBackdrop = exports.Right = exports.DialogHeader = exports.DialogContainer = exports.DialogBody = void 0;
 var jsx_runtime_1 = require("react/jsx-runtime");
 var styled_components_1 = __importStar(require("styled-components"));
 var useDialog_1 = __importDefault(require("./useDialog"));
@@ -46,7 +46,7 @@ var Right = styled_components_1["default"].div(templateObject_1 || (templateObje
 exports.Right = Right;
 var DialogIn = (0, styled_components_1.keyframes)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  0% {\n    transform: translate(-50%, -50%) scale(0.3);\n  }\n\n  100% {\n    transform: translate(-50%, -50%) scale(1);\n  }\n"], ["\n  0% {\n    transform: translate(-50%, -50%) scale(0.3);\n  }\n\n  100% {\n    transform: translate(-50%, -50%) scale(1);\n  }\n"])));
 var BackdropIn = (0, styled_components_1.keyframes)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  0% {\n    opacity: 0,\n  }\n\n  100% {\n    opacity: 1\n  }\n"], ["\n  0% {\n    opacity: 0,\n  }\n\n  100% {\n    opacity: 1\n  }\n"])));
-var DialogContainer = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  border-radius: 5px;\n  color: white;\n  animation: ", " 0.2s;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-family: Roboto, Helvetica, Arial, sans-serif;\n  transform: translate(-50%, -50%);\n  box-sizing: border-box;\n  min-width: 250px;\n  z-index: 1000;\n\n  border: 1px solid rgb(120, 120, 120);\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-size: 20px;\n  }\n"], ["\n  display: flex;\n  flex-direction: column;\n  border-radius: 5px;\n  color: white;\n  animation: ", " 0.2s;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-family: Roboto, Helvetica, Arial, sans-serif;\n  transform: translate(-50%, -50%);\n  box-sizing: border-box;\n  min-width: 250px;\n  z-index: 1000;\n\n  border: 1px solid rgb(120, 120, 120);\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-size: 20px;\n  }\n"])), DialogIn);
+var DialogContainer = styled_components_1["default"].div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  border-radius: 5px;\n  color: white;\n  animation: ", " 0.2s;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-family: Roboto, Helvetica, Arial, sans-serif;\n  transform: translate(-50%, -50%);\n  box-sizing: border-box;\n  min-width: 250px;\n  z-index: 1000;\n\n  border: 1px solid rgb(100, 100, 100);\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-size: 20px;\n  }\n"], ["\n  display: flex;\n  flex-direction: column;\n  border-radius: 5px;\n  color: white;\n  animation: ", " 0.2s;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-family: Roboto, Helvetica, Arial, sans-serif;\n  transform: translate(-50%, -50%);\n  box-sizing: border-box;\n  min-width: 250px;\n  z-index: 1000;\n\n  border: 1px solid rgb(100, 100, 100);\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-size: 20px;\n  }\n"])), DialogIn);
 exports.DialogContainer = DialogContainer;
 var DialogHeader = styled_components_1["default"].header(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  padding: 10px;\n  background-color: ", ";\n  background-image: linear-gradient(\n    rgba(255, 255, 255, 0.1),\n    rgba(255, 255, 255, 0.1)\n  );\n  border-radius: 5px 5px 0px 0px;\n  border: none;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"], ["\n  padding: 10px;\n  background-color: ", ";\n  background-image: linear-gradient(\n    rgba(255, 255, 255, 0.1),\n    rgba(255, 255, 255, 0.1)\n  );\n  border-radius: 5px 5px 0px 0px;\n  border: none;\n  display: flex;\n  align-items: center;\n  color: ", ";\n"])), function (p) {
     return p.colorset.DIALOG_HEADER_BACKGROUND.getRgbString();
@@ -66,4 +66,6 @@ var Divider = styled_components_1["default"].div(templateObject_8 || (templateOb
     return p.colorset.DIALOG_DIVIDER_BACKGROUND.getRgbString();
 });
 exports.Divider = Divider;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;
+var RawModeWrapper = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1000;\n"], ["\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1000;\n"])));
+exports.RawModeWrapper = RawModeWrapper;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;

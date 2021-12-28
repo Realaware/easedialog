@@ -57,14 +57,16 @@ interface DialogProps {
    * disable hover effect on dialog body.
    */
   noHoverEffect?: boolean;
+
   /**
-   * backdrop fade effect
+   * this options will allow you to make your own dialog from scratch.
+   * if this options is enabled, dialog will use body as whole container.
    *
-   * **WARNING**
+   * ** WARNING**
    *
-   * only backdrop is enabled.
+   * if you use rawMode, dialog animation will disappear.
    */
-  backdropFade?: boolean;
+  rawMode?: boolean;
 }
 
 interface DialogThemeType {
@@ -75,16 +77,16 @@ interface DialogThemeType {
 }
 
 const DialogDefaultTheme: DialogThemeType = {
-  DIALOG_HEADER_BACKGROUND: new RGB(0, 0, 0),
+  DIALOG_HEADER_BACKGROUND: new RGB(5, 5, 5),
   DIALOG_BODY_BACKGROUND: new RGB(10, 10, 10),
-  DIALOG_DIVIDER_BACKGROUND: new RGB(120, 120, 120),
+  DIALOG_DIVIDER_BACKGROUND: new RGB(100, 100, 100),
   DIALOG_HEADER_TEXT_COLOR: new RGB(255, 255, 255),
 };
 
 const DialogLightTheme: DialogThemeType = {
   DIALOG_HEADER_BACKGROUND: new RGB(150, 150, 150),
   DIALOG_BODY_BACKGROUND: new RGB(160, 160, 160),
-  DIALOG_DIVIDER_BACKGROUND: new RGB(120, 120, 120),
+  DIALOG_DIVIDER_BACKGROUND: new RGB(100, 100, 100),
   DIALOG_HEADER_TEXT_COLOR: new RGB(255, 255, 255),
 };
 

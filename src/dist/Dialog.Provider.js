@@ -29,6 +29,6 @@ function DialogProdiver(props) {
         theme: props.theme
             ? __assign(__assign({}, Dialog_Type_1.DialogDefaultTheme), props.theme) : Dialog_Type_1.DialogDefaultTheme
     };
-    return ((0, jsx_runtime_1.jsxs)(Dialog_Context_1["default"].Provider, __assign({ value: context }, { children: [props.children, (0, jsx_runtime_1.jsx)(Dialog_Body_1["default"], {}, void 0), dialog && dialog.visible && dialog.backdrop && ((0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBackdrop, { className: dialog.backdropFade ? 'fade' : undefined }, void 0))] }), void 0));
+    return ((0, jsx_runtime_1.jsxs)(Dialog_Context_1["default"].Provider, __assign({ value: context }, { children: [props.children, (0, jsx_runtime_1.jsx)(Dialog_Body_1["default"], {}, void 0), dialog && dialog.visible && dialog.backdrop && (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBackdrop, {}, void 0)] }), void 0));
 }
 exports["default"] = DialogProdiver;
