@@ -19,6 +19,17 @@ class RGB {
     this.a = a;
   }
 
+  private numToHex(c: number) {
+    const hex = c.toString(16);
+    return hex.length === 1 ? `0${hex}` : hex;
+  }
+
+  toHex() {
+    return `#${this.numToHex(this.r)}${this.numToHex(this.g)}${this.numToHex(
+      this.b,
+    )}`;
+  }
+
   getRgbString() {
     return this.a !== 1
       ? `rgba(${this.r}, ${this.g}, ${this.b}, ${this.a})`
@@ -33,12 +44,12 @@ class RGB {
    * this method will not calculate alpha.
    * @param arg
    */
-  plus(arg: RGB) {
-    this.r = clamp(this.r + arg.r, 0, 255);
-    this.g = clamp(this.g + arg.g, 0, 255);
-    this.b = clamp(this.b + arg.b, 0, 255);
+  plus(arg: RGB, a?: number) {
+    const r = clamp(this.r + arg.r, 0, 255);
+    const g = clamp(this.g + arg.g, 0, 255);
+    const b = clamp(this.b + arg.b, 0, 255);
 
-    return this;
+    return new RGB(r, g, b, a);
   }
 
   /**
@@ -49,10 +60,21 @@ class RGB {
    * this method will not calculate alpha.
    * @param arg
    */
-  minus(arg: RGB) {
-    this.r = clamp(this.r - arg.r, 0, 255);
-    this.g = clamp(this.g - arg.g, 0, 255);
-    this.b = clamp(this.b - arg.b, 0, 255);
+  minus(arg: RGB, a?: number) {
+    const r = clamp(this.r - arg.r, 0, 255);
+    const g = clamp(this.g - arg.g, 0, 255);
+    const b = clamp(this.b - arg.b, 0, 255);
+
+    return new RGB(r, g, b, a);
+  }
+
+  /**
+   * return inverted rgb object.
+   */
+  invert() {
+    this.r = clamp(255 - this.r, 0, 255);
+    this.g = clamp(255 - this.g, 0, 255);
+    this.b = clamp(255 - this.b, 0, 255);
 
     return this;
   }
