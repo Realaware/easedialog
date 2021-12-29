@@ -24,6 +24,16 @@ var useDialog_1 = __importDefault(require("./useDialog"));
 function Dialog() {
     var _a = (0, react_1.useContext)(Dialog_Context_1["default"]), dialog = _a.dialog, theme = _a.theme;
     var setDialog = (0, useDialog_1["default"])().setDialog;
-    return dialog && dialog.visible ? (dialog.rawMode ? ((0, jsx_runtime_1.jsx)(Dialog_Components_1.RawModeWrapper, { children: dialog.body }, void 0)) : ((0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogContainer, { children: [(0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogHeader, __assign({ colorset: theme }, { children: [(0, jsx_runtime_1.jsx)("h3", { children: dialog.title }, void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Right, { children: (0, jsx_runtime_1.jsx)(Icon_Button_1["default"], { onClick: function () { return setDialog({ visible: false }); }, size: 25, Icon: evil_1.Close }, void 0) }, void 0)] }), void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Divider, { colorset: theme }, void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBody, __assign({ className: dialog.noHoverEffect ? 'noHoverEffect' : undefined, colorset: theme }, { children: dialog.body }), void 0)] }, void 0))) : null;
+    (0, react_1.useEffect)(function () {
+        // implement dialog exit when escape pressed.
+        var keyCallback = function (e) {
+            if (e.key === 'Escape' && (dialog === null || dialog === void 0 ? void 0 : dialog.escExit)) {
+                setDialog({ visible: false });
+            }
+        };
+        window.addEventListener('keydown', keyCallback);
+        return function () { return window.removeEventListener('keydown', keyCallback); };
+    });
+    return dialog && dialog.visible ? (dialog.rawMode ? ((0, jsx_runtime_1.jsx)(Dialog_Components_1.RawModeWrapper, { children: dialog.body }, void 0)) : ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [dialog.backdrop && (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBackdrop, {}, void 0), (0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogContainer, { children: [(0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogHeader, __assign({ colorset: theme }, { children: [(0, jsx_runtime_1.jsx)("h3", { children: dialog.title }, void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Right, { children: (0, jsx_runtime_1.jsx)(Icon_Button_1["default"], { onClick: function () { return setDialog({ visible: false }); }, size: 25, Icon: evil_1.Close }, void 0) }, void 0)] }), void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Divider, { colorset: theme }, void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBody, __assign({ className: dialog.noHoverEffect ? 'noHoverEffect' : undefined, colorset: theme }, { children: dialog.body }), void 0)] }, void 0)] }, void 0))) : null;
 }
 exports["default"] = Dialog;

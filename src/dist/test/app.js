@@ -24,7 +24,7 @@ function App() {
                     visible: true,
                     body: (0, jsx_runtime_1.jsx)("div", { children: "hi this is dialog owner !" }, void 0),
                     backdrop: true,
-                    rawMode: true
+                    escExit: true
                 });
             } }, { children: "Click !" }), void 0) }, void 0));
 }

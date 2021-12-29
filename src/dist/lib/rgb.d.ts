@@ -4,6 +4,8 @@ declare class RGB {
     b: number;
     a: number;
     constructor(r?: number, g?: number, b?: number, a?: number);
+    private numToHex;
+    toHex(): string;
     getRgbString(): string;
     /**
      * plus two rgb object.
@@ -13,7 +15,7 @@ declare class RGB {
      * this method will not calculate alpha.
      * @param arg
      */
-    plus(arg: RGB): this;
+    plus(arg: RGB, a?: number): RGB;
     /**
      * minus two rgb object.
      *
@@ -22,6 +24,10 @@ declare class RGB {
      * this method will not calculate alpha.
      * @param arg
      */
-    minus(arg: RGB): this;
+    minus(arg: RGB, a?: number): RGB;
+    /**
+     * return inverted rgb object.
+     */
+    invert(): this;
 }
 export default RGB;

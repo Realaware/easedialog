@@ -19,6 +19,13 @@ var RGB = /** @class */ (function () {
         this.b = b;
         this.a = a;
     }
+    RGB.prototype.numToHex = function (c) {
+        var hex = c.toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+    };
+    RGB.prototype.toHex = function () {
+        return "#" + this.numToHex(this.r) + this.numToHex(this.g) + this.numToHex(this.b);
+    };
     RGB.prototype.getRgbString = function () {
         return this.a !== 1
             ? "rgba(" + this.r + ", " + this.g + ", " + this.b + ", " + this.a + ")"
@@ -32,11 +39,11 @@ var RGB = /** @class */ (function () {
      * this method will not calculate alpha.
      * @param arg
      */
-    RGB.prototype.plus = function (arg) {
-        this.r = clamp(this.r + arg.r, 0, 255);
-        this.g = clamp(this.g + arg.g, 0, 255);
-        this.b = clamp(this.b + arg.b, 0, 255);
-        return this;
+    RGB.prototype.plus = function (arg, a) {
+        var r = clamp(this.r + arg.r, 0, 255);
+        var g = clamp(this.g + arg.g, 0, 255);
+        var b = clamp(this.b + arg.b, 0, 255);
+        return new RGB(r, g, b, a);
     };
     /**
      * minus two rgb object.
@@ -46,10 +53,19 @@ var RGB = /** @class */ (function () {
      * this method will not calculate alpha.
      * @param arg
      */
-    RGB.prototype.minus = function (arg) {
-        this.r = clamp(this.r - arg.r, 0, 255);
-        this.g = clamp(this.g - arg.g, 0, 255);
-        this.b = clamp(this.b - arg.b, 0, 255);
+    RGB.prototype.minus = function (arg, a) {
+        var r = clamp(this.r - arg.r, 0, 255);
+        var g = clamp(this.g - arg.g, 0, 255);
+        var b = clamp(this.b - arg.b, 0, 255);
+        return new RGB(r, g, b, a);
+    };
+    /**
+     * return inverted rgb object.
+     */
+    RGB.prototype.invert = function () {
+        this.r = clamp(255 - this.r, 0, 255);
+        this.g = clamp(255 - this.g, 0, 255);
+        this.b = clamp(255 - this.b, 0, 255);
         return this;
     };
     return RGB;

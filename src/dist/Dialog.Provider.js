@@ -19,16 +19,14 @@ var jsx_runtime_1 = require("react/jsx-runtime");
 var react_1 = require("react");
 var Dialog_Body_1 = __importDefault(require("./Dialog.Body"));
 var Dialog_Context_1 = __importDefault(require("./Dialog.Context"));
-var Dialog_Type_1 = require("./Dialog.Type");
-var Dialog_Components_1 = require("./Dialog.Components");
+var createDialogTheme_1 = __importDefault(require("./lib/createDialogTheme"));
 function DialogProdiver(props) {
     var _a = (0, react_1.useState)(), dialog = _a[0], setDialog = _a[1];
     var context = {
         setDialog: setDialog,
         dialog: dialog,
-        theme: props.theme
-            ? __assign(__assign({}, Dialog_Type_1.DialogDefaultTheme), props.theme) : Dialog_Type_1.DialogDefaultTheme
+        theme: (0, createDialogTheme_1["default"])(props.theme)
     };
-    return ((0, jsx_runtime_1.jsxs)(Dialog_Context_1["default"].Provider, __assign({ value: context }, { children: [props.children, (0, jsx_runtime_1.jsx)(Dialog_Body_1["default"], {}, void 0), dialog && dialog.visible && dialog.backdrop && (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBackdrop, {}, void 0)] }), void 0));
+    return ((0, jsx_runtime_1.jsxs)(Dialog_Context_1["default"].Provider, __assign({ value: context }, { children: [props.children, (0, jsx_runtime_1.jsx)(Dialog_Body_1["default"], {}, void 0)] }), void 0));
 }
 exports["default"] = DialogProdiver;

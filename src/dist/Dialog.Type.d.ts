@@ -34,9 +34,9 @@ interface DialogProps {
      */
     position?: DialogPositions;
     /**
-     * **active**
+     * **visible**
      *
-     * it determines your dialog visiblity.
+     * it determines your dialog visibility.
      */
     visible?: boolean;
     /**
@@ -58,6 +58,10 @@ interface DialogProps {
      * if you use rawMode, dialog animation will disappear.
      */
     rawMode?: boolean;
+    /**
+     * exit dialog when esc pressed.
+     */
+    escExit?: boolean;
 }
 interface DialogThemeType {
     DIALOG_HEADER_BACKGROUND: RGB;

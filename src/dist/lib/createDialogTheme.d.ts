@@ -16,7 +16,7 @@ interface Options {
  * @param options
  * @returns theme
  */
-export default function createDialogTheme(theme: Partial<DialogThemeType>, options?: Options): {
+export default function createDialogTheme(theme?: Partial<DialogThemeType>, options?: Options): {
     DIALOG_HEADER_BACKGROUND: import("./rgb").default;
     DIALOG_BODY_BACKGROUND: import("./rgb").default;
     DIALOG_DIVIDER_BACKGROUND: import("./rgb").default;
