@@ -23,7 +23,7 @@ interface Options {
  * @returns theme
  */
 export default function createDialogTheme(
-  theme: Partial<DialogThemeType>,
+  theme?: Partial<DialogThemeType>,
   options?: Options,
 ) {
   return {

@@ -12,7 +12,7 @@ const Right = styled.div`
 
 const DialogIn = keyframes`
   0% {
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: translate(-50%, -50%) scale(0);
   }
 
   100% {
@@ -93,7 +93,7 @@ const DialogBody = styled.div<ThemeBasedComponent>`
 const DialogBackdropBase = styled.div`
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   width: 100%;
   height: 100%;

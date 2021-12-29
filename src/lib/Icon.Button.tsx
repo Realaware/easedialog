@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { StyledIcon } from '@styled-icons/styled-icon';
 
 const IconContainer = styled.button<{ size: number }>`
+  border: none;
+  outline: none;
+
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -12,7 +15,7 @@ const IconContainer = styled.button<{ size: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: rgb(150, 150, 150);
 
   width: ${(p) => p.size + 3}px !important;
   height: ${(p) => p.size + 3}px !important;

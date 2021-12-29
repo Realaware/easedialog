@@ -2,13 +2,8 @@
 import React, { useState } from 'react';
 import Dialog from './Dialog.Body';
 import DialogContext from './Dialog.Context';
-import {
-  DialogProps,
-  ProviderContext,
-  ProviderProps,
-  DialogDefaultTheme,
-} from './Dialog.Type';
-import { DialogBackdrop } from './Dialog.Components';
+import { DialogProps, ProviderContext, ProviderProps } from './Dialog.Type';
+import createDialogTheme from './lib/createDialogTheme';
 
 function DialogProdiver(props: ProviderProps) {
   const [dialog, setDialog] = useState<DialogProps>();
@@ -16,19 +11,13 @@ function DialogProdiver(props: ProviderProps) {
   const context: ProviderContext = {
     setDialog,
     dialog,
-    theme: props.theme
-      ? {
-          ...DialogDefaultTheme,
-          ...props.theme,
-        }
-      : DialogDefaultTheme,
+    theme: createDialogTheme(props.theme),
   };
 
   return (
     <DialogContext.Provider value={context}>
       {props.children}
       <Dialog />
-      {dialog && dialog.visible && dialog.backdrop && <DialogBackdrop />}
     </DialogContext.Provider>
   );
 }
