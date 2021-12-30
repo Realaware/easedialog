@@ -28,6 +28,6 @@ declare class RGB {
     /**
      * return inverted rgb object.
      */
-    invert(): this;
+    invert(a?: number): RGB;
 }
 export default RGB;

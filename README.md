@@ -74,6 +74,10 @@ function App() {
 
 # Changelogs
 
+## 2021/12/30
+- some options added.
+- litle improvement of dialog animation.
+
 ## 2021/12/28
 - Raw Mode Added.
 - Some improvements.

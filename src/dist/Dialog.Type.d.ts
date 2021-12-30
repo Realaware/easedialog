@@ -62,6 +62,10 @@ interface DialogProps {
      * exit dialog when esc pressed.
      */
     escExit?: boolean;
+    /**
+     * remove header from your dialog.
+     */
+    noHeader?: boolean;
 }
 interface DialogThemeType {
     DIALOG_HEADER_BACKGROUND: RGB;

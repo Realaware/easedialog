@@ -71,12 +71,12 @@ class RGB {
   /**
    * return inverted rgb object.
    */
-  invert() {
-    this.r = clamp(255 - this.r, 0, 255);
-    this.g = clamp(255 - this.g, 0, 255);
-    this.b = clamp(255 - this.b, 0, 255);
+  invert(a?: number) {
+    const r = clamp(255 - this.r, 0, 255);
+    const g = clamp(255 - this.g, 0, 255);
+    const b = clamp(255 - this.b, 0, 255);
 
-    return this;
+    return new RGB(r, g, b, a);
   }
 }
 

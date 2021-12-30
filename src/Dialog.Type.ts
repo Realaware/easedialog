@@ -72,6 +72,11 @@ interface DialogProps {
    * exit dialog when esc pressed.
    */
   escExit?: boolean;
+
+  /**
+   * remove header from your dialog.
+   */
+  noHeader?: boolean;
 }
 
 interface DialogThemeType {
@@ -103,4 +108,5 @@ export type {
   DialogThemeType,
   ThemeBasedComponent,
 };
+
 export { DialogDefaultTheme, DialogLightTheme };

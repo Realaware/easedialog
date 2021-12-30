@@ -1,5 +1,6 @@
 import React from 'react';
 import useDialog from '../useDialog';
+import Purchase from './dialogs/purchase';
 
 function App() {
   const { setDialog } = useDialog();
@@ -12,9 +13,11 @@ function App() {
           setDialog({
             title: `Purchase`,
             visible: true,
-            body: <div>hi this is dialog owner !</div>,
+            body: <Purchase />,
             backdrop: true,
             escExit: true,
+            noHoverEffect: true,
+            noHeader: true,
           });
         }}
       >

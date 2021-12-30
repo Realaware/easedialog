@@ -12,7 +12,7 @@ const Right = styled.div`
 
 const DialogIn = keyframes`
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0.2);
   }
 
   100% {
@@ -35,7 +35,7 @@ const DialogContainer = styled.div`
   flex-direction: column;
   border-radius: 5px;
   color: white;
-  animation: ${DialogIn} 0.2s;
+  animation: ${DialogIn} 0.15s;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -44,6 +44,7 @@ const DialogContainer = styled.div`
   box-sizing: border-box;
   min-width: 250px;
   z-index: 1000;
+  transition: 0.15s all;
 
   border: 1px solid rgb(100, 100, 100);
 

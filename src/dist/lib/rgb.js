@@ -21,15 +21,15 @@ var RGB = /** @class */ (function () {
     }
     RGB.prototype.numToHex = function (c) {
         var hex = c.toString(16);
-        return hex.length === 1 ? "0" + hex : hex;
+        return hex.length === 1 ? "0".concat(hex) : hex;
     };
     RGB.prototype.toHex = function () {
-        return "#" + this.numToHex(this.r) + this.numToHex(this.g) + this.numToHex(this.b);
+        return "#".concat(this.numToHex(this.r)).concat(this.numToHex(this.g)).concat(this.numToHex(this.b));
     };
     RGB.prototype.getRgbString = function () {
         return this.a !== 1
-            ? "rgba(" + this.r + ", " + this.g + ", " + this.b + ", " + this.a + ")"
-            : "rgb(" + this.r + ", " + this.g + ", " + this.b + ")";
+            ? "rgba(".concat(this.r, ", ").concat(this.g, ", ").concat(this.b, ", ").concat(this.a, ")")
+            : "rgb(".concat(this.r, ", ").concat(this.g, ", ").concat(this.b, ")");
     };
     /**
      * plus two rgb object.
@@ -62,11 +62,11 @@ var RGB = /** @class */ (function () {
     /**
      * return inverted rgb object.
      */
-    RGB.prototype.invert = function () {
-        this.r = clamp(255 - this.r, 0, 255);
-        this.g = clamp(255 - this.g, 0, 255);
-        this.b = clamp(255 - this.b, 0, 255);
-        return this;
+    RGB.prototype.invert = function (a) {
+        var r = clamp(255 - this.r, 0, 255);
+        var g = clamp(255 - this.g, 0, 255);
+        var b = clamp(255 - this.b, 0, 255);
+        return new RGB(r, g, b, a);
     };
     return RGB;
 }());
