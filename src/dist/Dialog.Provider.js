@@ -22,11 +22,8 @@ var Dialog_Context_1 = __importDefault(require("./Dialog.Context"));
 var createDialogTheme_1 = __importDefault(require("./lib/createDialogTheme"));
 function DialogProdiver(props) {
     var _a = (0, react_1.useState)(), dialog = _a[0], setDialog = _a[1];
-    var newSetDialog = function (v) {
-        setDialog(typeof v === 'object' ? __assign(__assign({}, dialog), v) : v);
-    };
     var context = {
-        setDialog: newSetDialog,
+        setDialog: setDialog,
         dialog: dialog,
         theme: (0, createDialogTheme_1["default"])(props.theme)
     };

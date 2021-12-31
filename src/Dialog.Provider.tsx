@@ -8,12 +8,8 @@ import createDialogTheme from './lib/createDialogTheme';
 function DialogProdiver(props: ProviderProps) {
   const [dialog, setDialog] = useState<DialogProps>();
 
-  const newSetDialog: typeof setDialog = (v) => {
-    setDialog(typeof v === 'object' ? { ...dialog, ...v } : v);
-  };
-
   const context: ProviderContext = {
-    setDialog: newSetDialog,
+    setDialog,
     dialog,
     theme: createDialogTheme(props.theme),
   };
