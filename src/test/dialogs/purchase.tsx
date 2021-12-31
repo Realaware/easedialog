@@ -17,7 +17,7 @@ const Column = styled.div`
 
 const ProductItemContainer = styled.div`
   padding: 15px;
-  background-color: rgb(15, 15, 17);
+  background-color: rgb(15, 15, 16);
   display: flex;
   border-radius: 5px;
 `;
@@ -42,6 +42,29 @@ const ProductCardContainer = styled.div`
   &:hover {
     background-color: rgba(25, 25, 25, 0.5);
   }
+`;
+
+const AccountContainer = styled.div`
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: rgba(15, 15, 15, 0.5);
+  font-weight: 600;
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+const ChargeButton = styled.button`
+  border: none;
+  outline: none;
+
+  background-color: rgb(0, 94, 170);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 500;
 `;
 
 function ProductItem({ name, price }: { name: string; price: number }) {
@@ -78,6 +101,16 @@ function ProductCard({ desc, title }: { desc: string; title: string }) {
 function Purchase() {
   return (
     <div>
+      <h1>Your Account</h1>
+      <GridView>
+        <AccountContainer>
+          <span>Guest</span>
+          <Right>
+            <ChargeButton>Deposit</ChargeButton>
+          </Right>
+        </AccountContainer>
+      </GridView>
+
       <h1>Welcome, Guest !</h1>
       <GridView>
         <ProductCard title="Pineapple" desc="sweet and delicious fruit." />

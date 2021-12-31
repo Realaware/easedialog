@@ -1,6 +1,6 @@
 {
   "name": "easedialog",
-  "version": "0.5.0a",
+  "version": "0.5.0b",
   "module": "src/dist/index.js",
   "main": "src/dist/index.js",
   "keywords": ["react", "react-dialog", "dialog", "react-component"],
