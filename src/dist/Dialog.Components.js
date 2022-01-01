@@ -37,7 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.RawModeWrapper = exports.Divider = exports.DialogBackdrop = exports.Right = exports.DialogHeader = exports.DialogContainer = exports.DialogBody = void 0;
+exports.ExitButton = exports.RawModeWrapper = exports.Divider = exports.DialogBackdrop = exports.Right = exports.DialogHeader = exports.DialogContainer = exports.DialogBody = void 0;
 var jsx_runtime_1 = require("react/jsx-runtime");
 var styled_components_1 = __importStar(require("styled-components"));
 var useDialog_1 = __importDefault(require("./useDialog"));
@@ -68,4 +68,6 @@ var Divider = styled_components_1["default"].div(templateObject_8 || (templateOb
 exports.Divider = Divider;
 var RawModeWrapper = styled_components_1["default"].div(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1000;\n"], ["\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1000;\n"])));
 exports.RawModeWrapper = RawModeWrapper;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;
+var ExitButton = styled_components_1["default"].button(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n  border: none;\n  outline: none;\n  background-color: transparent;\n  cursor: pointer;\n  font-weight: bold;\n  color: rgb(150, 150, 150);\n  font-size: 15px;\n"], ["\n  border: none;\n  outline: none;\n  background-color: transparent;\n  cursor: pointer;\n  font-weight: bold;\n  color: rgb(150, 150, 150);\n  font-size: 15px;\n"])));
+exports.ExitButton = ExitButton;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;

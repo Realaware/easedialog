@@ -7,4 +7,5 @@ declare const DialogBody: import("styled-components").StyledComponent<"div", any
 declare function DialogBackdrop(props: React.HTMLAttributes<HTMLDivElement>): JSX.Element;
 declare const Divider: import("styled-components").StyledComponent<"div", any, ThemeBasedComponent, never>;
 declare const RawModeWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export { DialogBody, DialogContainer, DialogHeader, Right, DialogBackdrop, Divider, RawModeWrapper, };
+declare const ExitButton: import("styled-components").StyledComponent<"button", any, {}, never>;
+export { DialogBody, DialogContainer, DialogHeader, Right, DialogBackdrop, Divider, RawModeWrapper, ExitButton, };

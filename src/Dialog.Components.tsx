@@ -131,6 +131,16 @@ const RawModeWrapper = styled.div`
   z-index: 1000;
 `;
 
+const ExitButton = styled.button`
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  color: rgb(150, 150, 150);
+  font-size: 15px;
+`;
+
 export {
   DialogBody,
   DialogContainer,
@@ -139,4 +149,5 @@ export {
   DialogBackdrop,
   Divider,
   RawModeWrapper,
+  ExitButton,
 };

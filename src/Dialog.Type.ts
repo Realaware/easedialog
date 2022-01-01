@@ -79,6 +79,11 @@ interface DialogProps {
   noHeader?: boolean;
 }
 
+interface DialogHistory {
+  body?: any;
+  title?: string;
+}
+
 interface DialogThemeType {
   DIALOG_HEADER_BACKGROUND: RGB;
   DIALOG_BODY_BACKGROUND: RGB;
@@ -107,6 +112,7 @@ export type {
   DialogPositions,
   DialogThemeType,
   ThemeBasedComponent,
+  DialogHistory,
 };
 
 export { DialogDefaultTheme, DialogLightTheme };

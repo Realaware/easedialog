@@ -2,6 +2,10 @@
 
 Use dialog in your program with ease.
 
+and
+
+HAPPY NEW YEAR !
+
 # Built With
 
 [Typescript](https://www.typescriptlang.org/)
@@ -74,6 +78,10 @@ function App() {
 
 # Changelogs
 
+## 2022/1/1
+- Some improvements.
+- size-reduction while dialog-exiting is fixed.
+
 ## 2021/12/30
 - some options added.
 - litle improvement of dialog animation.
@@ -81,9 +89,3 @@ function App() {
 ## 2021/12/28
 - Raw Mode Added.
 - Some improvements.
-
-## 2021/12/26
-
-- You can set your dialog theme using createDialogTheme method by putting its object into provider.
-- Dialog light theme added.
-- Fix weird position of backdrop.

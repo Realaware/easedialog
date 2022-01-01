@@ -8,16 +8,20 @@ import {
   Divider,
   RawModeWrapper,
   DialogBackdrop,
+  ExitButton,
 } from './Dialog.Components';
-import IconButton from './lib/Icon.Button';
-import { Close } from 'styled-icons/evil';
 import useDialog from './useDialog';
+import { DialogHistory } from './Dialog.Type';
 
 function Dialog() {
   const { dialog, theme } = useContext(DialogContext);
   const { setDialog } = useDialog();
   const [visible, setVisible] = useState(false);
   const ContainerRef = useRef<HTMLDivElement>(null);
+  const dialogHistory = useRef<DialogHistory>({
+    body: undefined,
+    title: undefined,
+  });
 
   useEffect(() => {
     // implement dialog exit when escape pressed.
@@ -39,14 +43,20 @@ function Dialog() {
       if (dialog.visible === false && container) {
         // exit animation.
         container.style.transform = 'translate(-50%, -50%) scale(0.2)';
+        container.style.opacity = '0';
         setTimeout(() => {
           setVisible(false);
         }, 150);
       } else if (dialog.visible === true) {
+        // save lastest body and title to prevent size-reduction when exiting.
+        dialogHistory.current = {
+          body: dialog.body,
+          title: dialog.title,
+        };
         setVisible(true);
       }
     }
-  }, [dialog?.visible]);
+  }, [dialog]);
 
   return dialog && visible ? (
     dialog.rawMode ? (
@@ -58,14 +68,12 @@ function Dialog() {
           {!dialog.noHeader && (
             <>
               <DialogHeader colorset={theme}>
-                <h3>{dialog.title}</h3>
+                <h3>{dialog.title || dialogHistory.current.title}</h3>
 
                 <Right>
-                  <IconButton
-                    onClick={() => setDialog({ visible: false })}
-                    size={25}
-                    Icon={Close}
-                  />
+                  <ExitButton onClick={() => setDialog({ visible: false })}>
+                    ×
+                  </ExitButton>
                 </Right>
               </DialogHeader>
               <Divider colorset={theme} />
@@ -76,7 +84,7 @@ function Dialog() {
             className={dialog.noHoverEffect ? 'noHoverEffect' : undefined}
             colorset={theme}
           >
-            {dialog.body}
+            {dialog.body || dialogHistory.current.body}
           </DialogBody>
         </DialogContainer>
       </>

@@ -17,7 +17,6 @@ function App() {
             backdrop: true,
             escExit: true,
             noHoverEffect: true,
-            noHeader: true,
           });
         }}
       >

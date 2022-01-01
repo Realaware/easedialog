@@ -67,6 +67,10 @@ interface DialogProps {
      */
     noHeader?: boolean;
 }
+interface DialogHistory {
+    body?: any;
+    title?: string;
+}
 interface DialogThemeType {
     DIALOG_HEADER_BACKGROUND: RGB;
     DIALOG_BODY_BACKGROUND: RGB;
@@ -75,5 +79,5 @@ interface DialogThemeType {
 }
 declare const DialogDefaultTheme: DialogThemeType;
 declare const DialogLightTheme: DialogThemeType;
-export type { ProviderContext, ProviderProps, DialogProps, DialogPositions, DialogThemeType, ThemeBasedComponent, };
+export type { ProviderContext, ProviderProps, DialogProps, DialogPositions, DialogThemeType, ThemeBasedComponent, DialogHistory, };
 export { DialogDefaultTheme, DialogLightTheme };
