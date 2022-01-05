@@ -1,4 +1,5 @@
 import React from 'react';
+import { Keyframes } from 'styled-components';
 import RGB from './lib/rgb';
 
 interface ProviderContext {
@@ -12,9 +13,9 @@ interface ProviderProps {
   theme?: Partial<DialogThemeType>;
 }
 
-interface ThemeBasedComponent {
+type ThemeBasedComponent<T = any> = T & {
   colorset: DialogThemeType;
-}
+};
 
 type DialogPositions = 'center';
 
@@ -77,11 +78,17 @@ interface DialogProps {
    * remove header from your dialog.
    */
   noHeader?: boolean;
+
+  /**
+   * used when dialog is generated.
+   */
+  animation?: Keyframes;
 }
 
 interface DialogHistory {
   body?: any;
   title?: string;
+  animation?: Keyframes;
 }
 
 interface DialogThemeType {

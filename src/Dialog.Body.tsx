@@ -21,6 +21,7 @@ function Dialog() {
   const dialogHistory = useRef<DialogHistory>({
     body: undefined,
     title: undefined,
+    animation: undefined,
   });
 
   useEffect(() => {
@@ -42,16 +43,16 @@ function Dialog() {
     if (dialog) {
       if (dialog.visible === false && container) {
         // exit animation.
-        container.style.transform = 'translate(-50%, -50%) scale(0.2)';
-        container.style.opacity = '0';
-        setTimeout(() => {
-          setVisible(false);
-        }, 150);
+        container.style.animationName =
+          dialogHistory.current.animation?.getName() || '';
+        container.style.animationDirection = 'reverse';
+        container.onanimationend = () => setVisible(false);
       } else if (dialog.visible === true) {
         // save lastest body and title to prevent size-reduction when exiting.
         dialogHistory.current = {
           body: dialog.body,
           title: dialog.title,
+          animation: dialog.animation,
         };
         setVisible(true);
       }
@@ -64,7 +65,11 @@ function Dialog() {
     ) : (
       <>
         {dialog.backdrop && <DialogBackdrop />}
-        <DialogContainer ref={ContainerRef}>
+        <DialogContainer
+          colorset={theme}
+          ref={ContainerRef}
+          animation={dialog.animation}
+        >
           {!dialog.noHeader && (
             <>
               <DialogHeader colorset={theme}>

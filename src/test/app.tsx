@@ -1,6 +1,17 @@
 import React from 'react';
 import useDialog from '../useDialog';
 import Purchase from './dialogs/purchase';
+import { keyframes } from 'styled-components';
+
+const DialogAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
 
 function App() {
   const { setDialog } = useDialog();
@@ -17,6 +28,7 @@ function App() {
             backdrop: true,
             escExit: true,
             noHoverEffect: true,
+            animation: DialogAnimation,
           });
         }}
       >

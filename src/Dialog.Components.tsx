@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { Keyframes, keyframes } from 'styled-components';
 import useDialog from './useDialog';
 import { ThemeBasedComponent } from './Dialog.Type';
 import RGB from './lib/rgb';
@@ -30,12 +30,14 @@ const BackdropIn = keyframes`
   }
 `;
 
-const DialogContainer = styled.div`
+const DialogContainer = styled.div<
+  ThemeBasedComponent<{ animation?: Keyframes }>
+>`
   display: flex;
   flex-direction: column;
   border-radius: 5px;
   color: white;
-  animation: ${DialogIn} 0.15s;
+  animation: ${(p) => p.animation || (!p.colorset && DialogIn)} 0.15s;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -44,7 +46,6 @@ const DialogContainer = styled.div`
   box-sizing: border-box;
   min-width: 250px;
   z-index: 1000;
-  transition: 0.15s all;
 
   border: 1px solid rgb(100, 100, 100);
 
