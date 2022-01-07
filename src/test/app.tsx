@@ -28,7 +28,6 @@ function App() {
             backdrop: true,
             escExit: true,
             noHoverEffect: true,
-            animation: DialogAnimation,
           });
         }}
       >

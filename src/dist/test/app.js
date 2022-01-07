@@ -32,8 +32,7 @@ function App() {
                     body: (0, jsx_runtime_1.jsx)(purchase_1["default"], {}, void 0),
                     backdrop: true,
                     escExit: true,
-                    noHoverEffect: true,
-                    animation: DialogAnimation
+                    noHoverEffect: true
                 });
             } }, { children: "Click !" }), void 0) }, void 0));
 }

@@ -43,10 +43,16 @@ function Dialog() {
     if (dialog) {
       if (dialog.visible === false && container) {
         // exit animation.
-        container.style.animationName =
-          dialogHistory.current.animation?.getName() || '';
-        container.style.animationDirection = 'reverse';
-        container.onanimationend = () => setVisible(false);
+        if (dialogHistory.current.animation) {
+          container.style.animationName =
+            dialogHistory.current.animation.getName();
+          container.style.animationDirection = 'reverse';
+          container.onanimationend = () => setVisible(false);
+        } else {
+          container.style.transform = 'translate(-50%, -50%) scale(0.2)';
+          container.style.opacity = '0';
+          setTimeout(() => setVisible(false), 150);
+        }
       } else if (dialog.visible === true) {
         // save lastest body and title to prevent size-reduction when exiting.
         dialogHistory.current = {
