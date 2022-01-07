@@ -24,11 +24,7 @@ function Dialog() {
     var setDialog = (0, useDialog_1["default"])().setDialog;
     var _b = (0, react_1.useState)(false), visible = _b[0], setVisible = _b[1];
     var ContainerRef = (0, react_1.useRef)(null);
-    var dialogHistory = (0, react_1.useRef)({
-        body: undefined,
-        title: undefined,
-        animation: undefined
-    });
+    var dialogHistory = (0, react_1.useRef)();
     (0, react_1.useEffect)(function () {
         // implement dialog exit when escape pressed.
         var keyCallback = function (e) {
@@ -41,12 +37,12 @@ function Dialog() {
     });
     (0, react_1.useEffect)(function () {
         var container = ContainerRef.current;
+        var history = dialogHistory.current;
         if (dialog) {
-            if (dialog.visible === false && container) {
+            if (dialog.visible === false && container && history) {
                 // exit animation.
-                if (dialogHistory.current.animation) {
-                    container.style.animationName =
-                        dialogHistory.current.animation.getName();
+                if (history.animation) {
+                    container.style.animationName = history.animation.getName();
                     container.style.animationDirection = 'reverse';
                     container.onanimationend = function () { return setVisible(false); };
                 }
@@ -58,15 +54,19 @@ function Dialog() {
             }
             else if (dialog.visible === true) {
                 // save lastest body and title to prevent size-reduction when exiting.
-                dialogHistory.current = {
-                    body: dialog.body,
-                    title: dialog.title,
-                    animation: dialog.animation
-                };
+                dialogHistory.current = dialog;
                 setVisible(true);
             }
         }
     }, [dialog]);
-    return dialog && visible ? (dialog.rawMode ? ((0, jsx_runtime_1.jsx)(Dialog_Components_1.RawModeWrapper, { children: dialog.body }, void 0)) : ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [dialog.backdrop && (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBackdrop, {}, void 0), (0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogContainer, __assign({ colorset: theme, ref: ContainerRef, animation: dialog.animation }, { children: [!dialog.noHeader && ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogHeader, __assign({ colorset: theme }, { children: [(0, jsx_runtime_1.jsx)("h3", { children: dialog.title || dialogHistory.current.title }, void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Right, { children: (0, jsx_runtime_1.jsx)(Dialog_Components_1.ExitButton, __assign({ onClick: function () { return setDialog({ visible: false }); } }, { children: "\u00D7" }), void 0) }, void 0)] }), void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Divider, { colorset: theme }, void 0)] }, void 0)), (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBody, __assign({ className: dialog.noHoverEffect ? 'noHoverEffect' : undefined, colorset: theme }, { children: dialog.body || dialogHistory.current.body }), void 0)] }), void 0)] }, void 0))) : null;
+    var getDialogProperty = function (key) {
+        var history = dialogHistory.current;
+        return dialog && dialog[key]
+            ? dialog[key]
+            : history && history[key]
+                ? history[key]
+                : null;
+    };
+    return dialog && visible ? (getDialogProperty('rawMode') ? ((0, jsx_runtime_1.jsx)(Dialog_Components_1.RawModeWrapper, { children: getDialogProperty('body') }, void 0)) : ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [getDialogProperty('backdrop') && (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBackdrop, {}, void 0), (0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogContainer, __assign({ colorset: theme, ref: ContainerRef, animation: dialog.animation }, { children: [!getDialogProperty('noHeader') && ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsxs)(Dialog_Components_1.DialogHeader, __assign({ colorset: theme }, { children: [(0, jsx_runtime_1.jsx)("h3", { children: getDialogProperty('title') }, void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Right, { children: (0, jsx_runtime_1.jsx)(Dialog_Components_1.ExitButton, __assign({ onClick: function () { return setDialog({ visible: false }); } }, { children: "\u00D7" }), void 0) }, void 0)] }), void 0), (0, jsx_runtime_1.jsx)(Dialog_Components_1.Divider, { colorset: theme }, void 0)] }, void 0)), (0, jsx_runtime_1.jsx)(Dialog_Components_1.DialogBody, __assign({ className: getDialogProperty('noHoverEffect') ? 'noHoverEffect' : undefined, colorset: theme }, { children: getDialogProperty('body') }), void 0)] }), void 0)] }, void 0))) : null;
 }
 exports["default"] = Dialog;

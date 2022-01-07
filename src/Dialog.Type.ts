@@ -85,12 +85,6 @@ interface DialogProps {
   animation?: Keyframes;
 }
 
-interface DialogHistory {
-  body?: any;
-  title?: string;
-  animation?: Keyframes;
-}
-
 interface DialogThemeType {
   DIALOG_HEADER_BACKGROUND: RGB;
   DIALOG_BODY_BACKGROUND: RGB;
@@ -119,7 +113,6 @@ export type {
   DialogPositions,
   DialogThemeType,
   ThemeBasedComponent,
-  DialogHistory,
 };
 
 export { DialogDefaultTheme, DialogLightTheme };

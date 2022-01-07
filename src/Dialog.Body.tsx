@@ -11,18 +11,14 @@ import {
   ExitButton,
 } from './Dialog.Components';
 import useDialog from './useDialog';
-import { DialogHistory } from './Dialog.Type';
+import { DialogProps } from './Dialog.Type';
 
 function Dialog() {
   const { dialog, theme } = useContext(DialogContext);
   const { setDialog } = useDialog();
   const [visible, setVisible] = useState(false);
   const ContainerRef = useRef<HTMLDivElement>(null);
-  const dialogHistory = useRef<DialogHistory>({
-    body: undefined,
-    title: undefined,
-    animation: undefined,
-  });
+  const dialogHistory = useRef<DialogProps>();
 
   useEffect(() => {
     // implement dialog exit when escape pressed.
@@ -39,13 +35,13 @@ function Dialog() {
 
   useEffect(() => {
     const container = ContainerRef.current;
+    const history = dialogHistory.current;
 
     if (dialog) {
-      if (dialog.visible === false && container) {
+      if (dialog.visible === false && container && history) {
         // exit animation.
-        if (dialogHistory.current.animation) {
-          container.style.animationName =
-            dialogHistory.current.animation.getName();
+        if (history.animation) {
+          container.style.animationName = history.animation.getName();
           container.style.animationDirection = 'reverse';
           container.onanimationend = () => setVisible(false);
         } else {
@@ -55,31 +51,36 @@ function Dialog() {
         }
       } else if (dialog.visible === true) {
         // save lastest body and title to prevent size-reduction when exiting.
-        dialogHistory.current = {
-          body: dialog.body,
-          title: dialog.title,
-          animation: dialog.animation,
-        };
+        dialogHistory.current = dialog;
         setVisible(true);
       }
     }
   }, [dialog]);
 
+  const getDialogProperty = (key: keyof DialogProps) => {
+    const history = dialogHistory.current;
+    return dialog && dialog[key]
+      ? dialog[key]
+      : history && history[key]
+      ? history[key]
+      : null;
+  };
+
   return dialog && visible ? (
-    dialog.rawMode ? (
-      <RawModeWrapper>{dialog.body}</RawModeWrapper>
+    getDialogProperty('rawMode') ? (
+      <RawModeWrapper>{getDialogProperty('body')}</RawModeWrapper>
     ) : (
       <>
-        {dialog.backdrop && <DialogBackdrop />}
+        {getDialogProperty('backdrop') && <DialogBackdrop />}
         <DialogContainer
           colorset={theme}
           ref={ContainerRef}
           animation={dialog.animation}
         >
-          {!dialog.noHeader && (
+          {!getDialogProperty('noHeader') && (
             <>
               <DialogHeader colorset={theme}>
-                <h3>{dialog.title || dialogHistory.current.title}</h3>
+                <h3>{getDialogProperty('title')}</h3>
 
                 <Right>
                   <ExitButton onClick={() => setDialog({ visible: false })}>
@@ -92,10 +93,12 @@ function Dialog() {
           )}
 
           <DialogBody
-            className={dialog.noHoverEffect ? 'noHoverEffect' : undefined}
+            className={
+              getDialogProperty('noHoverEffect') ? 'noHoverEffect' : undefined
+            }
             colorset={theme}
           >
-            {dialog.body || dialogHistory.current.body}
+            {getDialogProperty('body')}
           </DialogBody>
         </DialogContainer>
       </>

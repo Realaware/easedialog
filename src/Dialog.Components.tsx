@@ -41,7 +41,7 @@ const DialogContainer = styled.div<
   position: fixed;
   top: 50%;
   left: 50%;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   min-width: 250px;

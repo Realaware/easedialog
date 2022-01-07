@@ -1,17 +1,6 @@
 import React from 'react';
 import useDialog from '../useDialog';
-import Purchase from './dialogs/purchase';
-import { keyframes } from 'styled-components';
-
-const DialogAnimation = keyframes`
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-`;
+import Example from './dialogs/example';
 
 function App() {
   const { setDialog } = useDialog();
@@ -22,12 +11,12 @@ function App() {
         type="button"
         onClick={() => {
           setDialog({
-            title: `Purchase`,
             visible: true,
-            body: <Purchase />,
+            body: Example(), // you should use jsx syntax when you render jsx component unless you returned string, number etc...
             backdrop: true,
             escExit: true,
             noHoverEffect: true,
+            noHeader: true,
           });
         }}
       >
