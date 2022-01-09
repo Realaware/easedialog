@@ -1,6 +1,7 @@
 import React from 'react';
 import { Keyframes } from 'styled-components';
 declare const Right: import("styled-components").StyledComponent<"div", any, {}, never>;
+declare const DialogIn: Keyframes;
 declare const DialogContainer: import("styled-components").StyledComponent<"div", any, {
     animation?: Keyframes;
 } & {
@@ -12,4 +13,4 @@ declare function DialogBackdrop(props: React.HTMLAttributes<HTMLDivElement>): JS
 declare const Divider: import("styled-components").StyledComponent<"div", any, any, never>;
 declare const RawModeWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 declare const ExitButton: import("styled-components").StyledComponent<"button", any, {}, never>;
-export { DialogBody, DialogContainer, DialogHeader, Right, DialogBackdrop, Divider, RawModeWrapper, ExitButton, };
+export { DialogBody, DialogContainer, DialogHeader, Right, DialogBackdrop, Divider, RawModeWrapper, ExitButton, DialogIn, };

@@ -25,8 +25,7 @@ function App() {
                     body: (0, example_1["default"])(),
                     backdrop: true,
                     escExit: true,
-                    noHoverEffect: true,
-                    noHeader: true
+                    noHoverEffect: true
                 });
             } }, { children: "Click !" }), void 0) }, void 0));
 }

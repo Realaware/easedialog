@@ -37,7 +37,6 @@ const DialogContainer = styled.div<
   flex-direction: column;
   border-radius: 5px;
   color: white;
-  animation: ${(p) => p.animation || (p.colorset && DialogIn)} 0.15s;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -47,8 +46,9 @@ const DialogContainer = styled.div<
   min-width: 250px;
   z-index: 1000;
   transition: 0.15s all;
+  animation: ${(p) => p.animation} 0.15s;
 
-  border: 1px solid rgb(100, 100, 100);
+  outline: 0.5px solid rgb(100, 100, 100);
 
   h1,
   h2,
@@ -61,7 +61,7 @@ const DialogContainer = styled.div<
 `;
 
 const DialogHeader = styled.header<ThemeBasedComponent>`
-  padding: 10px;
+  padding: 6px;
   background-color: ${(p) =>
     p.colorset.DIALOG_HEADER_BACKGROUND.getRgbString()};
   background-image: linear-gradient(
@@ -120,7 +120,7 @@ function DialogBackdrop(props: React.HTMLAttributes<HTMLDivElement>) {
 
 const Divider = styled.div<ThemeBasedComponent>`
   width: 100%;
-  height: 2px;
+  height: 0.5px;
   background-color: ${(p) =>
     p.colorset.DIALOG_DIVIDER_BACKGROUND.getRgbString()};
 `;
@@ -152,4 +152,5 @@ export {
   Divider,
   RawModeWrapper,
   ExitButton,
+  DialogIn,
 };

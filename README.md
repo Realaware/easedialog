@@ -1,10 +1,10 @@
 # EaseDialog
 
-Use dialog in your program with ease.
+Use dialog in your react application with ease.
 
-and
-
-HAPPY NEW YEAR !
+# Announcement
+Sorry for dirty code on animation stuff.
+I am working on that. It will be fixed next update probably.
 
 # Built With
 

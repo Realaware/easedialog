@@ -1,4 +1,5 @@
 import React from 'react';
+import { keyframes } from 'styled-components';
 import useDialog from '../useDialog';
 import Example from './dialogs/example';
 
@@ -16,7 +17,6 @@ function App() {
             backdrop: true,
             escExit: true,
             noHoverEffect: true,
-            noHeader: true,
           });
         }}
       >
