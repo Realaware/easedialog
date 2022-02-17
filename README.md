@@ -3,8 +3,7 @@
 Use dialog in your react application with ease.
 
 # Announcement
-Sorry for dirty code on animation stuff.
-I am working on that. It will be fixed next update probably.
+NO MORE UPDATE.
 
 # Built With
 
