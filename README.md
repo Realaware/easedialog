@@ -3,7 +3,7 @@
 Use dialog in your react application with ease.
 
 # Announcement
-NO MORE UPDATE.
+https://www.npmjs.com/package/easedialog
 
 # Built With
 
